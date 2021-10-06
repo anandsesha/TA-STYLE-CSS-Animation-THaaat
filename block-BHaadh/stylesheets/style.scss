@@ -1,0 +1,49 @@
+@import "vars";
+@import "resets";
+@import "general";
+
+// 2D 3D Cubes
+.container{
+    max-width: 1000px;
+    margin: 180px auto;
+    // border: 6px solid black;
+    padding: 32px;
+}
+
+.cube{
+    position: relative;
+    &:hover{        
+        animation: twodAnimation 5s linear infinite;
+    }
+}
+.side{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    background-color: $box-general;
+    color: $secondary;
+    border: 1px solid black;
+}
+.top {
+    background: $box-general;
+    transform: rotate(-45deg) skew(15deg, 15deg);
+}
+.left {
+    background: $box-general;
+    transform: rotate(15deg) skew(15deg, 15deg) translate(-50%,100%);
+}
+.right {
+    background: $box-general;
+    transform: rotate(-15deg) skew(-15deg, -15deg) translate(50%,100%);
+}
+
+@keyframes twodAnimation {
+    0%{
+        transform-origin: 0 0;
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform-origin: 0 0;
+        transform: rotateY(360deg)
+    }
+}
