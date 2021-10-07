@@ -135,11 +135,11 @@ a {
   padding: 32px;
 }
 
-.cube {
+.cube-2D {
   position: relative;
 }
 
-.cube:hover {
+.cube-2D:hover {
   -webkit-animation: twodAnimation 5s linear infinite;
           animation: twodAnimation 5s linear infinite;
 }
@@ -199,5 +199,85 @@ a {
     -webkit-transform: rotateY(360deg);
             transform: rotateY(360deg);
   }
+}
+
+.cube-container {
+  margin: 180px auto;
+  position: absolute;
+  top: 10%;
+  left: 60%;
+  -webkit-perspective: 1500px;
+          perspective: 1500px;
+}
+
+.cube-3D {
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.cube-3D:hover {
+  -webkit-animation: threedAnimation 5s linear infinite;
+          animation: threedAnimation 5s linear infinite;
+}
+
+@-webkit-keyframes threedAnimation {
+  0% {
+    -webkit-transform: rotate3d(0, 0, 0, 0);
+            transform: rotate3d(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 1, 0, 360deg);
+            transform: rotate3d(0, 1, 0, 360deg);
+  }
+}
+
+@keyframes threedAnimation {
+  0% {
+    -webkit-transform: rotate3d(0, 0, 0, 0);
+            transform: rotate3d(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 1, 0, 360deg);
+            transform: rotate3d(0, 1, 0, 360deg);
+  }
+}
+
+.cube-side {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(45, 179, 74, 0.3);
+  border: 2px solid #2db34a;
+}
+
+.front-side {
+  -webkit-transform: translateZ(100px);
+          transform: translateZ(100px);
+}
+
+.back-side {
+  -webkit-transform: rotateX(180deg) translateZ(100px);
+          transform: rotateX(180deg) translateZ(100px);
+}
+
+.left-side {
+  -webkit-transform: rotateY(-90deg) translateZ(100px);
+          transform: rotateY(-90deg) translateZ(100px);
+}
+
+.right-side {
+  -webkit-transform: rotateY(90deg) translateZ(100px);
+          transform: rotateY(90deg) translateZ(100px);
+}
+
+.top-side {
+  -webkit-transform: rotateX(90deg) translateZ(100px);
+          transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom-side {
+  -webkit-transform: rotateX(-90deg) translateZ(100px);
+          transform: rotateX(-90deg) translateZ(100px);
 }
 /*# sourceMappingURL=style.css.map */
