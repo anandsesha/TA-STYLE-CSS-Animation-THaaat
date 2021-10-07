@@ -2,7 +2,8 @@
 @import "resets";
 @import "general";
 
-// 2D 3D Cubes
+// 2D Cube
+
 .container{
     max-width: 1000px;
     margin: 180px auto;
@@ -10,7 +11,7 @@
     padding: 32px;
 }
 
-.cube{
+.cube-2D{
     position: relative;
     &:hover{        
         animation: twodAnimation 5s linear infinite;
@@ -36,7 +37,6 @@
     background: $box-general;
     transform: rotate(-15deg) skew(-15deg, -15deg) translate(50%,100%);
 }
-
 @keyframes twodAnimation {
     0%{
         transform-origin: 0 0;
@@ -47,3 +47,58 @@
         transform: rotateY(360deg)
     }
 }
+
+
+// 3D Cube
+
+.cube-container{
+    margin: 180px auto;
+    position: absolute;
+    top: 10%;
+    left: 60%;
+    perspective: 1500px;
+}
+.cube-3D{
+    position: relative;
+    transform-style: preserve-3d;
+    &:hover{
+        animation: threedAnimation 5s linear infinite;
+    }
+}
+@keyframes threedAnimation {
+    0%{
+        transform: rotate3d(0,0,0,0);
+    }
+    100%{
+        transform: rotate3d(0,1,0,360deg);
+    }
+}
+
+.cube-side {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(45, 179, 74, .3);
+    border: 2px solid #2db34a;
+    
+    
+}
+.front-side {
+    transform: translateZ(100px);
+}
+.back-side {
+    transform: rotateX(180deg) translateZ(100px);
+}
+.left-side {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+.right-side {
+    transform: rotateY(90deg) translateZ(100px);
+}
+.top-side {
+    transform: rotateX(90deg) translateZ(100px);
+}
+.bottom-side {
+    transform: rotateX(-90deg) translateZ(100px);
+}
+  
